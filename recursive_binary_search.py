@@ -28,7 +28,7 @@ recursive ถ้าสังเกตดูจะเห็นว่า พอเ
 ้HOW IT WORKS
 recursive_bianry_search(list, target) ---> รอบแรก ถ้าไปตก else ถูก return
 return recursive_bianry_search(list[midpoint + 1:], target) -----> รอบที่ 2 ถ้ายังไม่เจอ target ก็จะ return recursive_bianry_search(list[midpoint + 1:], target) อีก
-จนกว่าจะเจอ target หรือจนกว่ารายการจะว่างเปล่า
+จนกว่าจะเจอ target หรือจนกว่ารายการจะว่างเปล่า (recursive depth)
 
 """
 
