@@ -20,7 +20,17 @@ def recursive_bianry_search(list, target):
             # [a:] --> เริ่มจาก a ไปถึงท้ายของ list
             else: # check if the middle element is greater than the target value
                 return recursive_bianry_search(list[:midpoint], target) # search in the left half of the list
+"""
+recursive ถ้าสังเกตดูจะเห็นว่า พอเข้า function ไปแล้ว ในฟังกก์ชั้นจะมีการ return ค่ากลับมา
+แล้วเอาไปเรียก function ใหม่ ซึ่ง function แรกมันยังค้างอยู่ ยังรันไม่เสร็จ 
+จนกว่าเราจะเจอค่า target หรือจนกว่ารายการจะว่างเปล่า
 
+้HOW IT WORKS
+recursive_bianry_search(list, target) ---> รอบแรก ถ้าไปตก else ถูก return
+return recursive_bianry_search(list[midpoint + 1:], target) -----> รอบที่ 2 ถ้ายังไม่เจอ target ก็จะ return recursive_bianry_search(list[midpoint + 1:], target) อีก
+จนกว่าจะเจอ target หรือจนกว่ารายการจะว่างเปล่า
+
+"""
 
 def verify(index):
     if index is not None:
