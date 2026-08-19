@@ -1,5 +1,6 @@
 def linear_search(list,target):
     """
+    Big O : O(log n)
     Notes : Return in Python in the failue case can be different in
     the implementations so we can use return -1 (No value) or return None can be used.
 
