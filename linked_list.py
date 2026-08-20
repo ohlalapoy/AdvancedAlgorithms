@@ -6,14 +6,14 @@
 class Node:
     def __init__(self, data):
         self.data = data
-        self.next = None   # ยังไม่ชี้ไปไหน
+        self.next = None   # ยังไม่ชี้ไปไหน (ตัวถัดไป)
+        
+    def __repr__(self):
+        return "<Node data: %s>" % self.data # replace % with self.data
 
 class LinkedList:
     def __init__(self):
         self.head = None   # จุดเริ่มต้น ชี้ไป node แรก
-
-    def __repr__(self):
-        return "<Node data: %s>" % self.data
 
     def add(self, data):
         """ เพิ่ม node ใหม่ที่จุดท้ายของ linked list 
@@ -71,3 +71,25 @@ class LinkedList:
             previous = current
             current = current.next
         return False  # ไม่เจอ node ที่ต้องการลบ
+
+    def insert(self, index, data):
+        """ แทรก node ใหม่ที่ตำแหน่ง index
+            takes O(n) time complexity
+        """
+        if index == 0: #ถ้าไม่มี data ให้เพิ่มที่ index 0
+           self.add(data)
+
+        if index > 0: #ถ้า index มากกว่า 0 ให้เพิ่ม node ใหม่ที่ตำแหน่ง index
+            new_node = Node(data)
+            current = self.head
+            position = index
+
+            while position > 1 and current is not None:
+                current = current.next
+                position -= 1
+
+            if current is None:
+                raise IndexError("Index out of bounds")
+
+            new_node.next = current.next
+            current.next = new_node
