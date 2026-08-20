@@ -4,6 +4,13 @@
     เพิ่มความเข้าใจเกี่ยวกับ linked list และการทำงานงับ
 """
 class Node:
+    """
+    Node ประกอบด้วย data และ pointer (next) ที่ชี้ไปยัง node ถัดไป
+    ดังนั้นต้องสร้าง Object ของ Node ก่อนที่จะสร้าง linked list
+    ต้องมี 2 attribute คือ data และ next
+    อ่านเพิ่มกันลืมมมจ๊ะะ : https://www.geeksforgeeks.org/dsa/singly-linked-list-tutorial/
+    """
+
     def __init__(self, data):
         self.data = data
         self.next = None   # ยังไม่ชี้ไปไหน (ตัวถัดไป)
@@ -28,6 +35,14 @@ class LinkedList:
             current = current.next
         current.next = new_node           # ต่อ node ใหม่เข้าไป
 
+
+    """
+    head -> node1 -> node2 -> node3 -> None
+    ใส่ตัวแรกไปเช็คก่อนว่า ถ้า head เป็น None ให้ head ชี้ไป node ใหม่
+    ถ้า head ไม่เป็น None ให้ไล่หา node สุดท้าย (current.next is not None) แล้วต่อ node ใหม่เข้าไป (current.next = new_node)
+    1. สร้าง node ใหม่ (new_node = Node(data))
+    """
+
     def print_list(self):
         current = self.head
         while current is not None:
@@ -40,8 +55,8 @@ class LinkedList:
             takes O(1) time complexity
         """
         new_node = Node(data)
-        new_node.next = self.head
-        self.head = new_node
+        new_node.next = self.head # point new_node.next ไปที่ node แรก (self.head)
+        self.head = new_node ## เปลี่ยน self.head ให้ชี้ไปที่ node ใหม่ (new_node)
 
     def search(self, key):
         """ ค้นหา node ที่มีค่า data เท่ากับ key
@@ -76,20 +91,23 @@ class LinkedList:
         """ แทรก node ใหม่ที่ตำแหน่ง index
             takes O(n) time complexity
         """
-        if index == 0: #ถ้าไม่มี data ให้เพิ่มที่ index 0
-           self.add(data)
+        if index < 0:
+            raise IndexError("Index out of bounds")
 
-        if index > 0: #ถ้า index มากกว่า 0 ให้เพิ่ม node ใหม่ที่ตำแหน่ง index
-            new_node = Node(data)
-            current = self.head
-            position = index
+        if index == 0:
+            self.add_at_beginning(data)
+            return
 
-            while position > 1 and current is not None:
-                current = current.next
-                position -= 1
+        new_node = Node(data)
+        current = self.head
+        position = index
 
-            if current is None:
-                raise IndexError("Index out of bounds")
+        while position > 1 and current is not None:
+            current = current.next
+            position -= 1
 
-            new_node.next = current.next
-            current.next = new_node
+        if current is None:
+            raise IndexError("Index out of bounds")
+
+        new_node.next = current.next
+        current.next = new_node
