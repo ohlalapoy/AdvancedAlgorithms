@@ -33,13 +33,13 @@ class LinkedList:
         current = self.head
         while current.next is not None:   # ไล่หา node สุดท้าย
             current = current.next
-        current.next = new_node           # ต่อ node ใหม่เข้าไป
-
+        current.next = new_node           # ไป node ถัดไป วนจนกว่า current.next เป็น None
 
     """
     head -> node1 -> node2 -> node3 -> None
     ใส่ตัวแรกไปเช็คก่อนว่า ถ้า head เป็น None ให้ head ชี้ไป node ใหม่
-    ถ้า head ไม่เป็น None ให้ไล่หา node สุดท้าย (current.next is not None) แล้วต่อ node ใหม่เข้าไป (current.next = new_node)
+    ถ้า head ไม่เป็น None ให้ไล่หา node สุดท้าย (current.next is not None) จะไปรัน current = current.next เพื่อบอกว่าไป Node ถัดไป
+    พอเจอว่า อ่อ current.next ที่วนไปเรื่อยๆตอนนี้เจอ None แล้ว จะรัน ---> (current.next = new_node) เพื่อบอกว่า งั้น Node ถัดไปของ current ให้ชี้ไป node ใหม่ (new_node)
     1. สร้าง node ใหม่ (new_node = Node(data))
     """
 
