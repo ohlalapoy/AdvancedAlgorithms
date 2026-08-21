@@ -76,16 +76,20 @@ class LinkedList:
         """
         current = self.head
         previous = None
-        while current:
-            if current.data == key:
-                if previous is None:  # ลบ node แรก
-                    self.head = current.next
-                else:
-                    previous.next = current.next
-                return True  # ลบสำเร็จ
-            previous = current
-            current = current.next
-        return False  # ไม่เจอ node ที่ต้องการลบ
+        found = False
+
+        while current and not found:
+            if current.data == key and current is self.head: #ถ้าตัวที่จะลบคือ node แรก (head)
+                found = True # set found = True เพื่อออกจาก loop  ครั้งถัดไป 
+                self.head = current.next # Remove แล้วให้เปลี่ยน head ให้ชี้ไป node ถัดไป (current.next)
+            elif current.data == key:
+                found = True
+                previous.next = current.next # Remove แล้วให้เปลี่ยน previous.next(node ก่อนหน้า )ให้ชี้ไป node ถัดไป (current.next)
+            else:
+                previous = current # set previous = current เพื่อให้ previous ชี้ไป node ก่อนหน้า 
+                current = current.next # เหมือนเป้นการเปลี่ยนตำแหน่ง current ไปเรื่อยๆจนกว่าจะเจอ current == key 
+        return current
+
 
     def insert(self, index, data):
         """ แทรก node ใหม่ที่ตำแหน่ง index
