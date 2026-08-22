@@ -2,6 +2,11 @@
     ตัวอย่างการสร้าง linked list แบบง่าย ๆ
     โดยใช้ class Node และ class LinkedList
     เพิ่มความเข้าใจเกี่ยวกับ linked list และการทำงานงับ
+
+
+    Singly list ชี้ไปทางเดียว Head --> A ---> B ---> C
+    Doubly list ที่ชี้ไปสองทาง Head ---> A ---> B ---> C
+                           Head <--- A <--- B <--- C
 """
 class Node:
     """
@@ -115,3 +120,9 @@ class LinkedList:
 
         new_node.next = current.next
         current.next = new_node
+
+'''
+เวลาเขียนลองนึกภาพ step by step เพราะ Computer ไม่รู้ว่าเราจะให้ทำอะไรบ้าง
+ดังนั้นทุกๆ step จะต้อง Precise แบบ indetails และ repeat ซ้ำได้ 
+ทริคง่ายสุดคือ ลองวาดภาพออกมาแล้วจะเขียนง่ายขึ้น 
+'''
