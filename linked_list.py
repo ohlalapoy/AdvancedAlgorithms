@@ -10,6 +10,8 @@
 """
 class Node:
     """
+    Class Node --> "กล่องเก็บของ" 1 กล่อง เก็บ data + ตัวชี้ไปกล่องถัดไป
+
     Node ประกอบด้วย data และ pointer (next) ที่ชี้ไปยัง node ถัดไป
     ดังนั้นต้องสร้าง Object ของ Node ก่อนที่จะสร้าง linked list
     ต้องมี 2 attribute คือ data และ next
@@ -20,6 +22,11 @@ class Node:
         self.next = None   # ยังไม่ชี้ไปไหน (ตัวถัดไป)
 
 class LinkedList:
+
+    """
+    LinkedList = "ตัวจัดการ" ที่รู้ว่ากล่องแรกอยู่ไหน (head) 
+    แล้วมี method จัดการกล่องพวกนั้น (add, delete, search, ...)
+    """
     def __init__(self):
         self.head = None   # จุดเริ่มต้น ชี้ไป node แรก
 
