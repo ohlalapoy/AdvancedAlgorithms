@@ -15,13 +15,9 @@ class Node:
     ต้องมี 2 attribute คือ data และ next
     อ่านเพิ่มกันลืมมมจ๊ะะ : https://www.geeksforgeeks.org/dsa/singly-linked-list-tutorial/
     """
-
     def __init__(self, data):
         self.data = data
         self.next = None   # ยังไม่ชี้ไปไหน (ตัวถัดไป)
-        
-    def __repr__(self):
-        return "<Node data: %s>" % self.data # replace % with self.data
 
 class LinkedList:
     def __init__(self):
@@ -121,6 +117,22 @@ class LinkedList:
         new_node.next = current.next
         current.next = new_node
 
+    def __repr__(self):
+            """
+            Return a string representation of the list.
+            Takes O(n) time.
+            """
+            nodes = []
+            current = self.head
+            while current:
+                if current is self.head:
+                    nodes.append("[Head: %s]" % current.data)
+                elif current.next is None:
+                    nodes.append("[Tail: %s]" % current.data)
+                else:
+                    nodes.append("[%s]" % current.data)
+                current = current.next
+            return  '-> '.join(nodes)
 '''
 เวลาเขียนลองนึกภาพ step by step เพราะ Computer ไม่รู้ว่าเราจะให้ทำอะไรบ้าง
 ดังนั้นทุกๆ step จะต้อง Precise แบบ indetails และ repeat ซ้ำได้ 
