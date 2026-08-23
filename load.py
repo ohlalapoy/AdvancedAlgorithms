@@ -7,3 +7,10 @@ def load_numbers(file_name):
     for line in f:
       numbers.append(int(line))
   return numbers
+
+def load_strings(file_name):
+  strings = []
+  with open(file_name,encoding="utf-16") as f:
+    for line in f:
+      strings.append(line.rstrip())
+  return strings
