@@ -16,11 +16,11 @@ def merge_sort(linked_list):
     left_half, right_half = split(linked_list)
     left = merge_sort(left_half)
     right = merge_sort(right_half)
+    return merge(left, right)
 
-    def split(linked_list):
+def split(linked_list):
         """
         Divide unsorted list at midpoint intoi sublists
-
         """
         if linked_list == None or linked_list.head == None:
             left_half = linked_list
@@ -40,7 +40,7 @@ def merge_sort(linked_list):
             return left_half, right_half
 
 
-    def merge(left,right):
+def merge(left,right):
         """
         Merges two linked lists, sorting by data in nodes
         returns a new, merged list
@@ -96,8 +96,18 @@ def merge_sort(linked_list):
             # Move current to next node
             current = current.next
 
-            # Discard fake head and set first merged node as head
-            head = merged.head.next
-            merged.head = head
+        # Discard fake head and set first merged node as head
+        head = merged.head.next
+        merged.head = head
+        return merged    
 
-            return merged    
+l = LinkedList()
+l.add(10)
+l.add(2)
+l.add(44)
+l.add(15)
+l.add(200)
+
+print(l)
+sorted_linked_list = merge_sort(l)
+print(sorted_linked_list)

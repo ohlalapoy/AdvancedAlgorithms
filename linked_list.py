@@ -136,7 +136,14 @@ class LinkedList:
                 position +=1  # นับก้าวเพิ่ม 1
             return current
 
-        
+    def size(self):
+        count = 0
+        node = self.head
+        while node:
+            count += 1
+            node = node.next
+        return count
+    
     def __repr__(self):
             """
             Return a string representation of the list.
