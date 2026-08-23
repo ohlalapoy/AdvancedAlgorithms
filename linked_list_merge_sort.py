@@ -99,6 +99,7 @@ def merge(left,right):
         # Discard fake head and set first merged node as head
         head = merged.head.next
         merged.head = head
+
         return merged    
 
 l = LinkedList()
