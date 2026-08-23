@@ -63,3 +63,19 @@ def index_of_min(values):
 # Lastly, we need to actually run our selection sort method, and
 # print the sorted list it returns.
 print(selection_sort(numbers))
+
+"""
+์NOTES !!!! 
+print("%-25s %-25s" % (values, sorted_list))  
+25	จองพื้นที่กว้าง 25 ตัวอักษร เพื่อให้เรียงเป้นระเบียบ 
+-	ชิดซ้าย (ถ้าไม่มี - จะชิดขวาแทน)
+s	บอกว่าค่านั้นจะถูกแปลงเป็น string
+%s ตัวแรก → รอรับ values
+%s ตัวที่สอง → รอรับ sorted_list
+
+Output จะเรียงสวยแบบนี้ ตัว sort_list จะเริ่มที่ 26 เป้นต้นไป
+[5, 2, 8]                 []                       
+[2, 8]                    [5]                      
+[8]                       [2, 5]                   
+[]                        [2, 5, 8]
+"""
