@@ -124,6 +124,19 @@ class LinkedList:
         new_node.next = current.next
         current.next = new_node
 
+    def node_at_index(self,index):
+        if index == 0:
+            return self.head
+        else: 
+            current = self.head # เริ่มยืนที่ node แรก
+            position = 0 # ตำแหน่งที่อยู่ว่าอยู่ index ไหน 
+
+            while position < index:
+                current = current.next # เดินไปข้างหน้า 1 ก้าว
+                position +=1  # นับก้าวเพิ่ม 1
+            return current
+
+        
     def __repr__(self):
             """
             Return a string representation of the list.
