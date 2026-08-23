@@ -69,8 +69,7 @@ def merge(left,right):
 #print(l)
 
 def verify_sorted(list):
-    n = len(list)
-
-    if n == 0 or n ==1:
-        return True
-    return list[0] < list[l] and verify_sorted(list[1:])
+    for i in range (len(list)-1):
+        if list[i] > list[i+1]: # Simply check ว่าถ้า index ก่อนหน้า มากกว่า index ถัดไปแปลว่า list นั้นยังไม่ได้ถูก sort มา 
+          return False
+    return True                 
