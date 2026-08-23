@@ -60,6 +60,14 @@ def quicksort(values):
   # sorted values greater than the pivot. That gives us a complete,
   # sorted list, which we return.
   print("%15s %1s %-15s" % (less_than_pivot,pivot,greater_than_pivot)) # ให้เห็นภาพตอน compare pivot แล้วย้ายฝั่งไปมาก่อน merge
+
+  """
+  OUTPUT
+           [1, 4] 5 [8, 7]         
+             [] 1 [4]            
+            [7] 8 []             
+[1, 4, 5, 7, 8]
+  """
   return quicksort(less_than_pivot) + [pivot] + quicksort(greater_than_pivot)
 
 # Lastly, we need to call our quicksort function with our list of
