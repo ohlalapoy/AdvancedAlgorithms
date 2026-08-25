@@ -10,6 +10,5 @@ class Solution:
 
 nums1 = [1,2]
 nums2 = [3,4]
-
 test = Solution()
 print(test.findMedianSortedArrays(nums1,nums2))
