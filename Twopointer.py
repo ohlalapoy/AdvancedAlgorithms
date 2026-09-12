@@ -4,6 +4,7 @@ Two pointers has 2 ways to solve
 - opposite : starter started from first index and the secound one start from the end
 
 Two Pointer เป็นเทคนิคที่ใช้ pointer สองตัววิ่งไล่ตามอาร์เรย์ (หรือ list) เพื่อลด time complexity จาก O(n²) เหลือ O(n)
+Trick ง่ายๆคือ ถ้าโจทย์ต้องการหาคู่ หรือ ต้องเทียบ pair ของมันลองใช้ TwoPointer ดูก่อน 
 
 type of problem that you usually use Twopointer to solve
 - Palindromes
