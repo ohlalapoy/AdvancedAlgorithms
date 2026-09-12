@@ -58,7 +58,7 @@ def remove_duplicates(arr):
     
     slow = 0  # ตำแหน่งสุดท้ายของค่าที่ไม่ซ้ำ
     
-    for fast in range(1, len(arr)):
+    for fast in range(1, len(arr)):   #slow จะขยับ index ก็ต่อเมื่อเจอค่าซ้ำ จะย้ายเพื่อไปเทียบตัว fast ตัวถัดไปดังัน้นตัว fast จะเป้นตัววนลูปเพื่อเทียบ
         if arr[fast] != arr[slow]:
             slow += 1
             arr[slow] = arr[fast]
