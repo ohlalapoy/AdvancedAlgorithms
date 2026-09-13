@@ -21,21 +21,9 @@ BFS has various applications in graph theory and computer science, including:
 - Connected Components
 - Network Routing
 '''
+
+# ----------------------------- BFS from a Given Source in an Undirected Graph
 from collections import deque
-
-def bfs(graph, start):
-    queue = deque([start])
-    visited = {start}
-
-    while queue:
-        node = queue.popleft()
-        print(node)
-
-        for neighbor in graph[node]:
-            if neighbor not in visited:
-                visited.add(neighbor)
-                queue.append(neighbor)
-
 
 # BFS for single connected component
 def bfs(adj):
@@ -60,6 +48,34 @@ def bfs(adj):
                 q.append(x)
                 
     return res
+    
+def addEdge(adj, u, v):
+    adj[u].append(v)
+    adj[v].append(u)
+    
+    
+if __name__ == "__main__":
+    V = 5
+    adj = []
+    
+    # creating adjacency list
+    for i in range(V):
+        adj.append([])
+        
+    addEdge(adj, 1, 2)
+    addEdge(adj, 1, 0)
+    addEdge(adj, 2, 0)
+    addEdge(adj, 2, 3)
+    addEdge(adj, 2, 4)
+
+    res = bfs(adj)
+
+    for node in res:
+        print(node, end=" ")
+
+
+# ----------------------------- BFS of a Disconnected Undirected Grap
+from collections import deque
 
 # BFS for a single connected component
 def bfsConnected(adj, src, visited, res):
@@ -88,3 +104,27 @@ def bfs(adj):
         if not visited[i]:
             bfsConnected(adj, i, visited, res)
     return res
+
+
+def addEdge(adj, u, v):
+    adj[u].append(v)
+    adj[v].append(u)
+  
+  
+if __name__ == "__main__":
+    V = 6
+    adj = []
+    
+    # creating adjacency list
+    for i in range(V):
+        adj.append([])
+        
+    addEdge(adj, 1, 2)
+    addEdge(adj, 2, 0)
+    addEdge(adj, 0, 3)
+    addEdge(adj, 4, 5)
+
+    res = bfs(adj)
+
+    for node in res:
+        print(node, end=" ")
