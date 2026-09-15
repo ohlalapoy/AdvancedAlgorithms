@@ -121,14 +121,40 @@ $$\int_{1}^{n} f(x)\,dx \le \sum_{i=1}^{n} f(i) \le f(1) + \int_{1}^{n} f(x)\,dx
 
 ---
 
-## 6. Exponent Rules (กฎเลขยกกำลัง)
+## 6. Exponent (เลขยกกำลัง)
+
+### 6.1 กฎพื้นฐาน
 
 | กฎ | สูตร |
 |---|---|
 | Product | $x^a \cdot x^b = x^{a+b}$ |
 | Quotient | $x^a / x^b = x^{a-b}$ |
 | Power of power | $(x^a)^b = x^{ab}$ |
-| Negative | $x^{-a} = 1/x^a$ |
+| Product of powers (ฐานต่าง) | $x^a \cdot y^a = (xy)^a$ |
+| Negative exponent | $x^{-a} = 1/x^a$ |
+| Zero exponent | $x^0 = 1$ (เมื่อ $x \ne 0$) |
+| Fractional exponent | $x^{1/n} = \sqrt[n]{x}$ |
+| Rational exponent | $x^{a/b} = \sqrt[b]{x^a} = \left(\sqrt[b]{x}\right)^a$ |
+
+### 6.2 ความสัมพันธ์กับ Logarithm
+
+Exponent กับ log เป็น inverse function ของกันและกัน ใช้แปลงไปมาได้เสมอ:
+
+$$b^{\log_b x} = x \qquad\qquad \log_b(b^x) = x$$
+
+เทคนิคที่เจอบ่อย — เปลี่ยนฐานของ exponent โดยใช้ log:
+$$a^n = b^{n\log_b a}$$
+
+**ตัวอย่างการใช้ในอัลกอริทึม:** พิสูจน์ว่า $n^{\log_b a}$ (จาก Master Theorem) เท่ากับอะไรเมื่อสลับฐาน:
+$$n^{\log_b a} = a^{\log_b n}$$
+
+### 6.3 Exponential Growth ในการวิเคราะห์อัลกอริทึม
+
+- **Exponential time**: $T(n) = O(c^n)$ เมื่อ $c > 1$ — โตเร็วกว่า polynomial ใดๆ เสมอ (ดูข้อ 2.3)
+- **Doubling / Halving recurrence**: ถ้าปัญหาลดขนาดเป็นครึ่งหนึ่งทุก step และแต่ละ step ทำงาน $O(1)$ จะได้ $T(n) = T(n/2) + O(1) = O(\log n)$ — กลับกันถ้าขนาด*เพิ่ม*เป็นสองเท่าทุก step (เช่น brute-force ลอง subset ทั้งหมด) จะได้ $T(n) = 2T(n-1) = O(2^n)$
+- **เปรียบเทียบฐาน**: $2^n$ กับ $3^n$ ต่างกันแบบ exponential ไม่ใช่แค่ค่าคงที่ ($3^n = 2^{n\log_2 3}$) จึงไม่ถือว่าอยู่ใน $\Theta$ เดียวกัน (ต่างจาก log ที่เปลี่ยนฐานได้อิสระ)
+- **สมการเลขยกกำลัง**: ถ้าต้องแก้ $a^n = k$ ให้ใช้ log ทั้งสองข้าง: $n = \log_a k = \dfrac{\ln k}{\ln a}$
+
 
 ---
 
