@@ -3,7 +3,7 @@ This Repo is for CS612 - Advanced Computer Algorithms during my Master's degree
 - Self Learning from https://www.youtube.com/watch?v=8hly31xKli0&t=345s
 - https://tira.mooc.fi/spring-2025/chap01/
 
-# สรุปคณิตศาสตร์สำหรับ Advanced Algorithms CS612 : Advanced Algorithms !! 
+# สรุปคณิตศาสตร์สำหรับ Advanced Algorithms CS612  
 
 เอกสารนี้รวบรวมเครื่องมือคณิตศาสตร์หลักที่ใช้บ่อยในการวิเคราะห์ความซับซ้อนของอัลกอริทึม (Complexity Analysis) เช่น Limit, Logarithm, Summation, และ Recurrence Relations
 
